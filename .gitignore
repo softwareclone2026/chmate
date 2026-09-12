@@ -1,0 +1,36 @@
+# ビルド生成物（リポジトリには含めない）
+.build-smb/
+/dist/
+/recovered-app/node_modules/
+/repair-build/*
+!/repair-build/repack.py
+*.app
+
+# 同梱の小型モデル（約 880MB）。Git では配布せず、別途取得する。
+# 配置場所は README.md を参照。
+/ChMateiOS/*.bundle
+
+# macOS
+.DS_Store
+._*
+
+# Xcode
+xcuserdata/
+*.xcuserstate
+DerivedData/
+build/
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM
+
+# Node / Electron
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.npm/
+
+# エディタ
+.vscode/
+.idea/
+*.swp

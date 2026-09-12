@@ -1,0 +1,16 @@
+{
+  "name": "chmate-windows",
+  "version": "0.1.0",
+  "private": true,
+  "description": "macOS and Windows desktop port of ChMateObjC",
+  "author": "ChMate Windows contributors <softwareclone@proton.me>",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "dependencies": {
+    "he": "1.2.0",
+    "iconv-lite": "0.7.0",
+    "lucide-react": "0.468.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}

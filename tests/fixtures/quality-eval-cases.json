@@ -1,0 +1,30 @@
+[
+  {
+    "id": "housing-question",
+    "source": "https://greta.5ch.io/test/read.cgi/poverty/1788440578/48",
+    "title": "大和ハウスの注文住宅、最低価格5000万円に コスト高で23道県は撤退",
+    "target": "これ建物だけで5000ってこと？",
+    "context": "スレ本文には「注文住宅、最低価格5000万円」とあるが、土地代を含むかの説明はない。"
+  },
+  {
+    "id": "meal-preference",
+    "source": "https://greta.5ch.io/test/read.cgi/poverty/1788508804/3",
+    "title": "定食チェーンが絶好調 ラーメンやカレーが1000円超えで相対的に割安",
+    "target": "ラーメンと定食じゃ満足度が違いすぎる",
+    "context": "定食とラーメンの価格・満足感について話している。"
+  },
+  {
+    "id": "housing-anecdote",
+    "source": "https://greta.5ch.io/test/read.cgi/poverty/1788440578/5",
+    "title": "大和ハウスの注文住宅、最低価格5000万円に コスト高で23道県は撤退",
+    "target": "賃貸アパートのDroomが主力でもともと戸建なんてほとんどやってないでしょ\n大和ハウスで家建てたなんて聞いた事ないし",
+    "context": "事業の比率を示す数字はスレ内にない。"
+  },
+  {
+    "id": "noise-risk",
+    "source": "https://greta.5ch.io/test/read.cgi/poverty/1788703909/627",
+    "title": "AIデータセンターの騒音",
+    "context": "近隣の騒音についての話題。実測値は示されていない。",
+    "target": "まぁ持家リスクってそういうもんだって皆んな分かってて買ってるから問題ない"
+  }
+]

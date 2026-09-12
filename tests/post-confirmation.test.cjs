@@ -1,0 +1,10 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const {confirmationBody}=require('../recovered-app/electron/post-confirmation.cjs');
+const {createNetwork}=require('../recovered-app/electron/network.cjs');
+const url='https://greta.5ch.io/test/bbs.cgi';
+const html=`書き込み確認<form method="POST" action="/test/bbs.cgi"><input type=hidden name=suka value="123"><input type=hidden name=time value="456"><input type=hidden name=MESSAGE value="changed"><input type=submit name=submit value="承諾"></form>`;
+test('preserves approved content and includes confirmation fields',()=>{const r=confirmationBody(html,url,'bbs=poverty&key=1&MESSAGE=approved&time=0');assert.match(r.body,/MESSAGE=approved/);assert.match(r.body,/suka=123/);assert.match(r.body,/time=456/)});
+test('ignores external forms',()=>assert.equal(confirmationBody(html.replace('/test/bbs.cgi','https://example.com/test/bbs.cgi'),url,'bbs=x'),null));
+test('confirmation is retained only for identical draft',async()=>{const sent=[];let n=0;const poster=async(u,h,b)=>{sent.push([u,b]);return {text:n++<1?html.replace('/test/bbs.cgi','/test/bbs.cgi?guid=ON'):'<!-- _X:success -->',headers:{get:()=>null}}};const net=createNetwork(fetch,poster);const data={board:{url:'https://greta.5ch.io/poverty/'},key:'1',message:'approved'};assert.equal((await net.post(data)).success,false);assert.equal((await net.post(data)).success,true);assert.match(sent[1][0],/guid=ON/);assert.match(sent[1][1],/suka=123/)});
+test('changed draft discards confirmation',async()=>{const sent=[];const poster=async(u,h,b)=>{sent.push(b);return {text:html,headers:{get:()=>null}}};const net=createNetwork(fetch,poster);const d={board:{url:'https://greta.5ch.io/poverty/'},key:'1',message:'approved'};await net.post(d);await net.post({...d,message:'different'});assert.doesNotMatch(sent[1],/suka=/)});

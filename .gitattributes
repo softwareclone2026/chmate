@@ -1,0 +1,16 @@
+# 改行コードはプラットフォームごとに自動変換する。
+* text=auto
+
+# シェルスクリプトと Python は Windows でも LF のまま扱う。
+*.sh text eol=lf
+*.command text eol=lf
+*.py text eol=lf
+*.cjs text eol=lf
+*.json text eol=lf
+
+# 画像やモデルなどのバイナリ。
+*.png binary
+*.jpg binary
+*.gif binary
+*.bundle binary
+*.gguf binary
